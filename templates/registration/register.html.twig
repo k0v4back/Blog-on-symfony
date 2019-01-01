@@ -1,14 +1,31 @@
-{% extends 'base.html.twig' %}
+{% extends 'home.html.twig' %}
 
 {% block title %}Register{% endblock %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('css/register_form.css') }}" rel="stylesheet"/>
+{% endblock %}
+
 {% block body %}
-    <h1>Register</h1>
 
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword) }}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-md-5 col-lg-6" style="text-align: center; padding: 20px">
+                <div style="margin: 20px">
+                    <span class="heading" style="font-size: 1.7em">Registration</span>
+                    <hr>
 
-        <button class="btn">Register</button>
-    {{ form_end(registrationForm) }}
+                    {{ form_start(registrationForm, {'attr': {'class': 'form-horizontal'}}) }}
+                    {{ form_row(registrationForm.email, {'attr': {'class': 'form-control', 'type':'email'}}) }}
+                    {{ form_row(registrationForm.plainPassword, {'attr': {'class': 'form-control', 'type':'email'}, 'label': 'Password'}) }}
+
+                    <br>
+                    <button class="btn">Register</button>
+                    {{ form_end(registrationForm) }}
+                </div>
+            </div>
+        </div>
+    </div>
+
 {% endblock %}
