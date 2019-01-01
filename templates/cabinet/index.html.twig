@@ -1,0 +1,58 @@
+{% extends 'home.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('css/cabinet.css') }}" rel="stylesheet" />
+    <link rel="stylesheet" href="http://bootstraptema.ru/plugins/font-awesome/4-4-0/font-awesome.min.css" />
+    <script src="http://bootstraptema.ru/plugins/jquery/jquery-1.11.3.min.js"></script>
+    <script src="http://bootstraptema.ru/plugins/2015/b-v3-3-6/bootstrap.min.js"></script>
+{% endblock %}
+
+{% block body %}
+        <div id="main" style="margin: 20px">
+
+
+            <div class="row" id="real-estates-detail">
+                <div class="col-lg-4 col-md-4 col-xs-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                        </div>
+                        <div class="panel-body">
+                            <div class="text-center" id="author">
+                                <img src="http://bootstraptema.ru/snippets/element/2016/profilesection/myprofile.jpg">
+                                <h3>Василий Понторезов</h3>
+                                <small class="label label-warning">Российская Федерация</small>
+                                <p>Я простой Русский пацан и мне всё по барабану.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-8 col-xs-12">
+                    <div class="panel">
+                        <div class="panel-body">
+                                <h4>Data about user</h4>
+                                <table class="table table-th-block">
+                                    <tbody>
+                                    <tr><td class="active">Зарегистрирован:</td><td>12-06-2016</td></tr>
+                                    <tr><td class="active">Последняя активность:</td><td>12-06-2016 / 09:11</td></tr>
+                                    <tr><td class="active">Страна:</td><td>Россия</td></tr>
+                                    <tr><td class="active">Город:</td><td>Волгоград</td></tr>
+                                    <tr><td class="active">Пол:</td><td>Мужской</td></tr>
+                                    <tr><td class="active">Полных лет:</td><td>43</td></tr>
+                                    <tr><td class="active">Семейное положение:</td><td>Женат</td></tr>
+                                    <tr><td class="active">Рейтинг пользователя:</td><td><i class="fa fa-star" style="color:red"></i> <i class="fa fa-star" style="color:red"></i> <i class="fa fa-star" style="color:red"></i> <i class="fa fa-star" style="color:red"></i> 4/5</td></tr>
+                                    <tr><td class="active">Плагин рейтинга:</td><td><a href="http://bootstraptema.ru/stuff/plugins_bootstrap/improvement/bootstrap_star_rating/12-1-0-73" target="_blank">http://goo.gl/bGGXuw</a></td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
+
+
+
