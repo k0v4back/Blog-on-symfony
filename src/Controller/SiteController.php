@@ -14,4 +14,12 @@ class SiteController extends AbstractController
     {
         return $this->render('site/index.html.twig');
     }
+
+    /**
+     * @Route("/logout", name="logout")
+     */
+    public function logout()
+    {
+
+    }
 }

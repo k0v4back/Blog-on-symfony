@@ -38,15 +38,18 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ path('contact') }}">Cabinet</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('logout') }}">Logout</a>
+                    </li>
                 {% else %}
                     <li class="nav-item">
                         <a class="nav-link">|</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('sign_in') }}">| Sign in</a>
+                        <a class="nav-link" href="{{ path('app_login') }}">Sign in</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('sign_up') }}">Sign up</a>
+                        <a class="nav-link" href="{{ path('app_register') }}">Sign up</a>
                     </li>
                 {% endif %}
             </ul>
