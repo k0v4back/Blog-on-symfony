@@ -44,15 +44,12 @@ class User implements UserInterface
     private $city;
 
     /**
-     * @ORM\Column(type="datetime")
-     */
-    private $date_create;
-
-    /**
      * @ORM\Column(type="integer", nullable=true)
      */
     private $photo_id;
 
+    /**
+     */
     public function getId(): ?int
     {
         return $this->id;
@@ -150,18 +147,6 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getDateCreate(): ?\DateTimeInterface
-    {
-        return $this->date_create;
-    }
-
-    public function setDateCreate(\DateTimeInterface $date_create): self
-    {
-        $this->date_create = $date_create;
-
-        return $this;
-    }
-
     public function getPhotoId(): ?int
     {
         return $this->photo_id;
@@ -173,4 +158,5 @@ class User implements UserInterface
 
         return $this;
     }
+
 }
