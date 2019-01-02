@@ -33,6 +33,26 @@ class User implements UserInterface
      */
     private $password;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $username;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $city;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $date_create;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $photo_id;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -109,5 +129,48 @@ class User implements UserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    public function setUsername(?string $username): self
+    {
+        $this->username = $username;
+
+        return $this;
+    }
+
+    public function getCity(): ?string
+    {
+        return $this->city;
+    }
+
+    public function setCity(?string $city): self
+    {
+        $this->city = $city;
+
+        return $this;
+    }
+
+    public function getDateCreate(): ?\DateTimeInterface
+    {
+        return $this->date_create;
+    }
+
+    public function setDateCreate(\DateTimeInterface $date_create): self
+    {
+        $this->date_create = $date_create;
+
+        return $this;
+    }
+
+    public function getPhotoId(): ?int
+    {
+        return $this->photo_id;
+    }
+
+    public function setPhotoId(?int $photo_id): self
+    {
+        $this->photo_id = $photo_id;
+
+        return $this;
     }
 }
