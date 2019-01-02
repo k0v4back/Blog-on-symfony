@@ -1,3 +1,25 @@
-{{ form_start(form) }}
-{{ form_widget(form) }}
-{{ form_end(form) }}
+{% extends 'home.html.twig' %}
+
+{% block body %}
+    {#{{ form_start(form, {'class': 'form-group'}) }}#}
+    {#{{ form_widget(form) }}#}
+    {#{{ form_end(form) }}#}
+
+
+    <div class="container" style="padding: 20px">
+
+        <a href="{{ path('user_cabinet') }}" class="btn btn-secondary" style="margin: 10px">Go back</a>
+
+            {{ form_start(form, {'class': 'form-group'}) }}
+            {{ form_errors(form) }}
+
+            {{ form_row(form.username, {'attr': {'class': 'form-control', 'type':'text'}, 'label': 'Username'}) }}
+            <p>
+                {{ form_row(form.email, {'attr': {'class': 'form-control', 'type':'email'}, 'label': 'Email'}) }}
+            <p>
+                {{ form_row(form.city, {'attr': {'class': 'form-control', 'type':'text'}, 'label': 'City'}) }}
+            <p>
+                {{ form_end(form, {'attr': {'class': 'form-control', 'type':'button'}}) }}
+    </div>
+
+{% endblock %}
