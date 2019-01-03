@@ -7,6 +7,7 @@ use App\Entity\User;
 use App\Form\EditUserData;
 use App\Form\PhotoType;
 use App\Service\FileUploader;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Routing\Annotation\Route;
@@ -73,6 +74,15 @@ class CabinetController extends AbstractController
         return $this->redirectToRoute('app_login');
     }
 
+    /**
+     * @Route("/manage/post", name="manage_post")
+     * @IsGranted("ROLE_ADMIN")
+     */
+    public function managePosts()
+    {
+        return $this->render('cabinet/manage.html.twig', []);
+    }
+
 
     /**
      * @Route("/upload", name="upload_user_photo")
@@ -92,9 +102,6 @@ class CabinetController extends AbstractController
 
             $photo->setName($fileName);
         }
-
-
-
 
         return $this->render('cabinet/upload_photo.html.twig', [
                 'form' => $form->createView(),

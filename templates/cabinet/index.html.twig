@@ -57,7 +57,9 @@
                             </tbody>
                         </table>
                         <a href="{{ path('edit_user_data') }}" class="btn btn-success" style="margin: 10px">Edit</a>
-
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <a href="{{ path('manage_post') }}" class="btn btn-info" style="margin: 10px">Manage posts</a>
+                        {% endif %}
                     </div>
                 </div>
             </div>
