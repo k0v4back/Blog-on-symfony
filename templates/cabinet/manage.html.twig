@@ -1,0 +1,44 @@
+{% extends 'home.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div style="margin-top: 20px; margin-bottom: 20px">
+            <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+                <a href="{{ path('manage_post_create') }}" class="btn btn-success">Create post</a><p></p>
+                <thead>
+                <tr>
+                    <th class="th-sm">Title
+
+                    </th>
+                    <th class="th-sm">Content
+
+                    </th>
+                    <th class="th-sm">Status
+
+                    </th>
+                    <th class="th-sm">Author
+
+                    </th>
+                    <th class="th-sm">Time of creation
+
+                    </th>
+                    <th class="th-sm">Actions
+
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Tiger Nixon</td>
+                    <td>System Architect</td>
+                    <td>Edinburgh</td>
+                    <td>61</td>
+                    <td>2011/04/25</td>
+                    <td>$320,800</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+{% endblock %}

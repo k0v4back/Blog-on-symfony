@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class CreatePostController extends AbstractController
 {
     /**
-     * @Route("/manage/post", name="manage_post")
+     * @Route("/manage/post/create", name="manage_post_create")
      * @IsGranted("ROLE_ADMIN")
      */
     public function managePosts(Request $request)
