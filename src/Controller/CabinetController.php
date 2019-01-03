@@ -15,17 +15,20 @@ class CabinetController extends AbstractController
      */
     public function index()
     {
-        $id = $this->getUser()->getId();
+        if ($this->getUser()) {
+            $id = $this->getUser()->getId();
 
-        $user = $this->getDoctrine()
-            ->getRepository(User::class)
-            ->findUserById($id);
+            $user = $this->getDoctrine()
+                ->getRepository(User::class)
+                ->findUserById($id);
 
-        return $this->render('cabinet/index.html.twig',
-            [
-                'user' => $user[0]
-            ]
-        );
+            return $this->render('cabinet/index.html.twig',
+                [
+                    'user' => $user[0]
+                ]
+            );
+        }
+        return $this->redirectToRoute('app_login');
     }
 
     /**
@@ -33,32 +36,37 @@ class CabinetController extends AbstractController
      */
     public function editUserData(Request $request)
     {
+        if ($this->getUser()) {
 
-        $id = $this->getUser()->getId();
+            $id = $this->getUser()->getId();
 
-        $user = $this->getDoctrine()
-            ->getRepository(User::class)
-            ->findUserById($id);
+            $user = $this->getDoctrine()
+                ->getRepository(User::class)
+                ->findUserById($id);
 
-        $form = $this->createForm(EditUserData::class, $user[0]);
+            $form = $this->createForm(EditUserData::class, $user[0]);
 
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
-            $user = $form->getData();
+            $form->handleRequest($request);
+            if ($form->isSubmitted() && $form->isValid()) {
+                $user = $form->getData();
 
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($user);
-            $entityManager->flush();
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($user);
+                $entityManager->flush();
 
-            $this->addFlash(
-                'success',
-                'Your changes were saved!'
-            );
-            return $this->redirectToRoute('user_cabinet');
+                $this->addFlash(
+                    'success',
+                    'Your changes were saved!'
+                );
+                return $this->redirectToRoute('user_cabinet');
+            }
+
+            return $this->render('cabinet/edit.html.twig', array(
+                'form' => $form->createView(),
+            ));
         }
 
-        return $this->render('cabinet/edit.html.twig', array(
-            'form' => $form->createView(),
-        ));
+        return $this->redirectToRoute('app_login');
+
     }
 }
