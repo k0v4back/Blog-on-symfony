@@ -2,44 +2,18 @@
 
 {% block body %}
 
+    <div class="container">
+        <div style="margin: 10px; padding: 20px">
+            {{ form_start(form, {'class': 'form-group'}) }}
+            {{ form_errors(form) }}
 
-    {{ form_start(form)}}
-    {{ form_errors(form)}}
-
-    {{ form_row(form.title) }}
-    {{ form_row(form.content) }}
-    {{ form_row(form.status) }}
-    {{ form_end(form) }}
-
-
-
-
-    <div class="form-group">
-        <label for="exampleFormControlInput1">Email address</label>
-        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+            {{ form_row(form.title, {'attr': {'class': 'form-control', 'type':'text'}, 'label': 'Title'}) }}
+            {{ form_row(form.content, {'attr': {'class': 'form-control', 'type':'text'}, 'label': 'Content'}) }}
+            {{ form_row(form.status, {'attr': {'class': 'form-control', 'type':'integer'}, 'label': 'Status'}) }}
+            <p>
+                {{ form_row(form.save, {'attr': {'class': 'btn btn-success'}, 'label': 'Save' }) }}
+                {{ form_end(form) }}
+        </div>
     </div>
-    <div class="form-group">
-        <label for="exampleFormControlSelect1">Example select</label>
-        <select class="form-control" id="exampleFormControlSelect1">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-        </select>
-    </div>
-    <div class="form-group">
-        <label for="exampleFormControlSelect2">Example multiple select</label>
-        <select multiple class="form-control" id="exampleFormControlSelect2">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-        </select>
-    </div>
-    <div class="form-group">
-        <label for="exampleFormControlTextarea1">Example textarea</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-    </div>
+
 {% endblock %}
