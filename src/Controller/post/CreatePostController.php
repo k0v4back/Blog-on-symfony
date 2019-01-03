@@ -21,6 +21,31 @@ class CreatePostController extends AbstractController
         $form = $this->createForm(PostCreateFormType::class, $post);
         $form->handleRequest($request);
 
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+
+            $title = $request->request->get('post_create_form')['title'];
+            $content = $request->request->get('post_create_form')['content'];
+            $status = $request->request->get('post_create_form')['status'];
+            $id = $this->getUser()->getId();
+
+            $post = new Post();
+            $post->setTitle($title);
+            $post->setContent($content);
+            $post->setStatus($status);
+            $post->setCreatedAt(new \DateTime('now'));
+            $post->setAuthorId($id);
+
+            $entityManager->persist($post);
+            $entityManager->flush();
+
+            $this->addFlash(
+                'success',
+                'Post success saved!'
+            );
+            return $this->redirectToRoute('user_cabinet');
+        }
+
         return $this->render('cabinet/createPost.html.twig', [
             'form' => $form->createView(),
         ]);
