@@ -24,6 +24,10 @@ class DeletePostController extends AbstractController
 
             return $this->redirectToRoute('manage_post');
         }
+        $this->addFlash(
+            'success',
+            'Post success delete!'
+        );
         return $this->redirectToRoute('manage_post');
 
     }

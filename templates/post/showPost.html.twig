@@ -1,0 +1,26 @@
+{% extends 'home.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div style="margin-top: 20px; margin-bottom: 20px">
+
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="card" style="width: 60rem">
+                        <div class="card-body">
+                            <h5 class="card-title"><i>Title - </i>{{ post.title }}</h5>
+                            <p class="card-text"><i>Content - </i>{{ post.content }}</p>
+                            <p class="card-text"><i>Status - </i>{{ post.status }}</p>
+                            <p class="card-text"><i>Created_at - </i>{{ post.createdAt|date("d/m/Y") }}</p>
+                            <hr>
+                            <a href="{{ path('manage_post') }}" class="btn btn-dark">Go back</a>
+                            <a href="{{ path('manage_post_delete', {'id':post.id}) }}" class="btn btn-danger">Remove</a>
+                            <a href="{{ path('manage_post_edit', {'id':post.id}) }}" class="btn btn-primary">Edit</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

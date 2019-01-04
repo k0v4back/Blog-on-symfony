@@ -43,7 +43,7 @@ class CreatePostController extends AbstractController
                 'success',
                 'Post success saved!'
             );
-            return $this->redirectToRoute('user_cabinet');
+            return $this->redirectToRoute('manage_post');
         }
 
         return $this->render('cabinet/createPost.html.twig', [
