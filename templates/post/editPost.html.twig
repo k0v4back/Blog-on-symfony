@@ -1,0 +1,23 @@
+{% extends 'home.html.twig' %}
+
+{% block body %}
+
+    <div class="container" style="padding: 20px">
+
+        <a href="{{ path('manage_post') }}" class="btn btn-secondary" style="margin: 10px">Go to Manage post</a>
+
+        {{ form_start(form, {'class': 'form-group'}) }}
+        {{ form_errors(form) }}
+
+        {{ form_row(form.title, {'attr': {'class': 'form-control', 'type':'text'}, 'label': 'Title'}) }}
+        <p>
+            {{ form_row(form.content, {'attr': {'class': 'form-control', 'type':'email'}, 'label': 'Content'}) }}
+        <p>
+            {{ form_row(form.status, {'attr': {'class': 'form-control', 'type':'text'}, 'label': 'Status'}) }}
+            <p></p>
+            {{ form_row(form.save, {'attr': {'class': 'btn btn-success'}, 'label': 'Save'}) }}
+        <p>
+            {{ form_end(form, {'attr': {'class': 'form-control', 'type':'button'}}) }}
+    </div>
+
+{% endblock %}
