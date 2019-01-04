@@ -7,9 +7,10 @@
             {{ form_start(form, {'class': 'form-group'}) }}
             {{ form_errors(form) }}
 
-            {{ form_row(form.title, {'attr': {'class': 'form-control', 'type':'text'}, 'label': 'Title'}) }}
-            {{ form_row(form.content, {'attr': {'class': 'form-control', 'type':'text'}, 'label': 'Content'}) }}
-            {{ form_row(form.status, {'attr': {'class': 'form-control', 'type':'integer'}, 'label': 'Status'}) }}
+            {{ form_row(form.title, {'attr': {'class': 'form-control', 'type':'text'}, 'label': 'Title'}) }}<p></p>
+            {{ form_row(form.content, {'attr': {'class': 'form-control', 'type':'text'}, 'label': 'Content'}) }}<p></p>
+            {{ form_row(form.status, {'attr': {'class': 'form-control', 'type':'integer'}, 'label': 'Status'}) }}<p></p>
+            {{ form_row(form.photo) }}
             <p>
                 {{ form_row(form.save, {'attr': {'class': 'btn btn-success'}, 'label': 'Save' }) }}
                 {{ form_end(form) }}

@@ -5,6 +5,7 @@ namespace App\Form\post;
 use App\Entity\Post;
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -17,6 +18,10 @@ class PostCreateFormType extends AbstractType
             ->add('title')
             ->add('content')
             ->add('status')
+            ->add('photo', FileType::class, [
+                'mapped' => false,
+                'label' => 'Upload photo'
+            ])
             ->add('save', SubmitType::class);
     }
 
