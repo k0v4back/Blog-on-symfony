@@ -46,6 +46,11 @@ class Post
      */
     private $status;
 
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $photo;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -119,6 +124,18 @@ class Post
     public function setStatus(?int $status): self
     {
         $this->status = $status;
+
+        return $this;
+    }
+
+    public function getPhoto(): ?string
+    {
+        return $this->photo;
+    }
+
+    public function setPhoto(string $photo): self
+    {
+        $this->photo = $photo;
 
         return $this;
     }
