@@ -1,5 +1,10 @@
 {% extends 'home.html.twig' %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+{% endblock %}
+
 {% block body %}
     <div class="container">
         <div style="margin-top: 20px; margin-bottom: 20px">
@@ -35,7 +40,7 @@
                         <td>{{ post.status }}</td>
                         <td>{{ post.authorId }}</td>
                         <td>{{ post.createdAt|date("d/m/Y") }}</td>
-                        <td>Actions</td>
+                        <td><a href="{{ path('manage_post_delete', {'id':post.id}) }}"><i class="fas fa-times" style="color:red"></i></a></td>
                     </tr>
                 {% endfor %}
                 {#<tr>#}
