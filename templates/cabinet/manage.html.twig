@@ -28,14 +28,24 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>Tiger Nixon</td>
-                    <td>System Architect</td>
-                    <td>Edinburgh</td>
-                    <td>61</td>
-                    <td>2011/04/25</td>
-                    <td>$320,800</td>
-                </tr>
+                {% for post in posts %}
+                    <tr>
+                        <td>{{ post.title }}</td>
+                        <td>{{ post.content }}t</td>
+                        <td>{{ post.status }}</td>
+                        <td>{{ post.authorId }}</td>
+                        <td>{{ post.createdAt|date("d/m/Y") }}</td>
+                        <td>Actions</td>
+                    </tr>
+                {% endfor %}
+                {#<tr>#}
+                    {#<td>Tiger Nixon</td>#}
+                    {#<td>System Architect</td>#}
+                    {#<td>Edinburgh</td>#}
+                    {#<td>61</td>#}
+                    {#<td>2011/04/25</td>#}
+                    {#<td>$320,800</td>#}
+                {#</tr>#}
                 </tbody>
             </table>
         </div>

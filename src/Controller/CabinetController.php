@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Photo;
+use App\Entity\Post;
 use App\Entity\User;
 use App\Form\EditUserData;
 use App\Form\PhotoType;
@@ -80,7 +81,12 @@ class CabinetController extends AbstractController
      */
     public function managePosts()
     {
-        return $this->render('cabinet/manage.html.twig', []);
+        $posts = $this->getDoctrine()
+            ->getRepository(Post::class)
+            ->findAllPost();
+        return $this->render('cabinet/manage.html.twig', [
+            'posts' => $posts
+        ]);
     }
 
 
