@@ -3,8 +3,9 @@
 namespace App\Form\post;
 
 use App\Entity\Post;
-use App\Entity\User;
+use App\Service\PostStatusHelper;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -17,7 +18,11 @@ class PostCreateFormType extends AbstractType
         $builder
             ->add('title')
             ->add('content')
-            ->add('status')
+            ->add('status', ChoiceType::class, array(
+                'choices'  => array(
+                    PostStatusHelper::statusListDropDown()
+                ),
+            ))
             ->add('photo', FileType::class, [
                 'mapped' => false,
                 'label' => 'Upload photo',

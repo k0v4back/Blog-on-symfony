@@ -9,6 +9,10 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Post
 {
+    const POST_ACTIVE = 1;
+    const POST_NO_ACTIVE = 2;
+    const POST_DRAFT = 3;
+    const POST_NOT_FOUND_STATUS = 'Status not found';
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()

@@ -3,6 +3,7 @@
 namespace App\Controller\post;
 
 use App\Entity\Post;
+use App\Service\PostStatusHelper;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -18,9 +19,12 @@ class ShowPostController extends AbstractController
         $doctrine = $this->getDoctrine()->getManager();
         $post = $doctrine->getRepository(Post::class)->findOneBy(array('id' => $id));
 
+        $statusHelper = new PostStatusHelper();
+
         if($post != null){
             return $this->render('post/showPost.html.twig', [
-                'post' => $post
+                'post' => $post,
+                'status' => $statusHelper
             ]);
         }
     }
