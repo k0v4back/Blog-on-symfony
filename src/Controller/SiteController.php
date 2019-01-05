@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Post;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -12,7 +13,13 @@ class SiteController extends AbstractController
      */
     public function index()
     {
-        return $this->render('site/index.html.twig');
+        $posts = $this->getDoctrine()
+            ->getRepository(Post::class)
+            ->findAllPost();
+
+        return $this->render('site/index.html.twig', [
+            'posts' => $posts
+        ]);
     }
 
     /**
