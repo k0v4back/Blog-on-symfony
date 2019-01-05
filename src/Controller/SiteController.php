@@ -14,20 +14,14 @@ class SiteController extends Controller
      */
     public function index(Request $request)
     {
-        $em = $this->getDoctrine()->getManager();
-
         $posts = $this->getDoctrine()
             ->getRepository(Post::class)
-            ->findAllPost();
+            ->findByExampleField(1);
 
         $paginator  = $this->get('knp_paginator');
-        // Paginate the results of the query
         $appointments = $paginator->paginate(
-        // Doctrine Query, not results
             $posts,
-            // Define the page parameter
             $request->query->getInt('page', 1),
-            // Items per page
             5
         );
 

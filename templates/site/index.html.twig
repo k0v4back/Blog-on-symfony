@@ -8,27 +8,11 @@
 
             <h1 class="my-4">
             </h1>
-
-            <!-- Blog Post -->
-            {#{% for post in posts %}#}
-                {#<div class="card mb-4">#}
-                    {#<img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">#}
-                    {#<div class="card-body">#}
-                        {#<h2 class="card-title">{{ post.title }}</h2>#}
-                        {#<p class="card-text">{{ post.content |slice(0,200) }} ...</p>#}
-                        {#<a href="#" class="btn btn-primary">Read More &rarr;</a>#}
-                    {#</div>#}
-                    {#<div class="card-footer text-muted">#}
-                        {#Posted on {{ post.createdAt|date("d/m/Y") }}#}
-                    {#</div>#}
-                {#</div>#}
-            {#{% endfor %}#}
-
             {% for appointment in appointments %}
                 <div class="card mb-4">
                     <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
                     <div class="card-body">
-                        <h2 class="card-title">{{ appointment.title}}</h2>
+                        <h2 class="card-title">{{ appointment.title }}</h2>
                         <p class="card-text">{{ appointment.content |slice(0,200) }} ...</p>
                         <a href="#" class="btn btn-primary">Read More &rarr;</a>
                     </div>
@@ -37,14 +21,10 @@
                     </div>
                 </div>
             {% endfor %}
-
-
             <!-- Pagination -->
             <ul class="pagination justify-content-center mb-4">
-                    {{ knp_pagination_render(appointments) }}
-
+                {{ knp_pagination_render(appointments) }}
             </ul>
-
         </div>
 
         <!-- Sidebar Widgets Column -->
