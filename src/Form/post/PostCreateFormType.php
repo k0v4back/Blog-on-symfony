@@ -20,7 +20,8 @@ class PostCreateFormType extends AbstractType
             ->add('status')
             ->add('photo', FileType::class, [
                 'mapped' => false,
-                'label' => 'Upload photo'
+                'label' => 'Upload photo',
+                'required' => false
             ])
             ->add('save', SubmitType::class);
     }

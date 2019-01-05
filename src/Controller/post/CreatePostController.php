@@ -24,21 +24,19 @@ class CreatePostController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
 
-
-
             $title = $request->request->get('post_create_form')['title'];
             $content = $request->request->get('post_create_form')['content'];
             $status = $request->request->get('post_create_form')['status'];
             $id = $this->getUser()->getId();
             $file = $request->files->get('post_create_form')['photo'];
 
-            $uploads_directory = $this->getParameter('photo_post_directory');
-            $fileName = md5(uniqid()).'.'.$file->guessExtension();
-
-            $file->move(
-                $uploads_directory,
-                $fileName
-            );
+//            $uploads_directory = $this->getParameter('photo_post_directory');
+//            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+//
+//            $file->move(
+//                $uploads_directory,
+//                $fileName
+//            );
 
             $post = new Post();
             $post->setTitle($title);
@@ -46,7 +44,7 @@ class CreatePostController extends AbstractController
             $post->setStatus($status);
             $post->setCreatedAt(new \DateTime('now'));
             $post->setAuthorId($id);
-            $post->setPhoto($fileName);
+//            $post->setPhoto($fileName);
 
             $entityManager->persist($post);
             $entityManager->flush();
