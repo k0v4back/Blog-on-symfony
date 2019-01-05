@@ -25,4 +25,5 @@ class DisplayOnePostController extends AbstractController
             return $this->redirectToRoute('main');
         }
     }
+
 }
