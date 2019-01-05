@@ -8,6 +8,7 @@ use App\Entity\User;
 use App\Form\EditUserData;
 use App\Form\PhotoType;
 use App\Service\FileUploader;
+use App\Service\PostStatusHelper;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -84,8 +85,12 @@ class CabinetController extends AbstractController
         $posts = $this->getDoctrine()
             ->getRepository(Post::class)
             ->findAllPost();
+
+        $postStatus = new PostStatusHelper();
+
         return $this->render('cabinet/manage.html.twig', [
-            'posts' => $posts
+            'posts' => $posts,
+            'status' => $postStatus
         ]);
     }
 

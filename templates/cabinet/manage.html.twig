@@ -43,7 +43,7 @@
                     <tr>
                         <td>{{ post.title }}</td>
                         <td>{{ post.content }}t</td>
-                        <td>{{ post.status }}</td>
+                        <td>{{ status.statusLabel(post.status) | raw}}</td>
                         <td>{{ post.authorId }}</td>
                         <td>{{ post.createdAt|date("d/m/Y") }}</td>
                         <td>
