@@ -11,7 +11,7 @@
             </h1>
             {% for appointment in appointments %}
                 <div class="card mb-4">
-                    <a href="{{ path('show_one_post', {'id': appointment.id}) }}"><img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap"></a>
+                    <a href="{{ path('show_one_post', {'id': appointment.id}) }}"><img class="card-img-top" style="height: 300px" src="{% if appointment.photo %}{{ asset('upload/') ~ appointment.photo }}{% else %}http://placehold.it/750x300"{% endif %}" alt="Card image cap"></a>
                     <div class="card-body">
                         <a href="{{ path('show_one_post', {'id': appointment.id}) }}"><h2 class="card-title">{{ appointment.title }}</h2></a>
                         <p class="card-text">{{ appointment.content |slice(0,200) }} ...</p>

@@ -25,9 +25,12 @@ class SiteController extends Controller
             5
         );
 
+        $photoDirectory = $this->getParameter('photo_post_directory');
+
         return $this->render('site/index.html.twig', [
             'posts' => $posts,
-            'appointments' => $appointments
+            'appointments' => $appointments,
+            'photoDirectory' => $photoDirectory
         ]);
     }
 
