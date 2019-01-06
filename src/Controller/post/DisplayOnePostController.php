@@ -4,7 +4,6 @@ namespace App\Controller\post;
 
 use App\Entity\Comment;
 use App\Entity\Post;
-use App\Entity\User;
 use App\Form\post\CommentFormType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -20,6 +19,7 @@ class DisplayOnePostController extends AbstractController
         $post = $this->getDoctrine()
             ->getRepository(Post::class)
             ->findPostById($id);
+
 
         $comments = $this->getDoctrine()
             ->getRepository(Comment::class)
@@ -47,13 +47,10 @@ class DisplayOnePostController extends AbstractController
                 return $this->redirectToRoute('show_one_post', array('id' => $id));
             }
 
-            $getUser = new DisplayOnePostController();
-
             return $this->render('post/displayOnePost.html.twig', [
                 'post' => $post[0],
                 'form' => $form->createView(),
-                'comments' => $comments,
-                'getUser' => $getUser
+                'comments' => $comments
             ]);
         } else {
             return $this->redirectToRoute('main');
